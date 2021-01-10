@@ -1,38 +1,54 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var hasLower = confirm("Would you like lower case letters?");
-var hasUpper = confirm("Would you like upper case letters?");
-var hasNumber = confirm("Would you like numbers?");
-var hasSymbol = confirm("Would you like symbols?");
 
 // Write password to the #password input
 function writePassword() {
+  // Question Prompts
+  var hasLower = confirm("Would you like lower case letters?");
+  var hasUpper = confirm("Would you like upper case letters?");
+  var hasNumber = confirm("Would you like numbers?");
+  var hasSymbol = confirm("Would you like symbols?");
+  var passwordLength = parseInt(prompt("How many characters would you like in your password? Pick between 8 and 128"));
+  // Variables to be included/excluded in generated password
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  var numbers = "0123456789";
+  var symbols = "!@#$%^&*()[]<>.,";
+  // Puts generated password in password box
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  // Function to generate random password
+  function generatePassword() {
+    var allowedOptions = "";
+    var abbey = "";
+    var length = passwordLength;
+
+    if (hasLower === true) {
+      allowedOptions += lowercase;
+    }
+    if (hasUpper === true) {
+      allowedOptions += uppercase;
+    }
+    if (hasNumber === true) {
+      allowedOptions += numbers;
+    }
+    if (hasSymbol === true) {
+      allowedOptions += symbols;
+    }
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      for (var i = 0; i < length; i++) {
+        var random = Math.floor(Math.random() * allowedOptions.length);
+  
+        abbey += allowedOptions[random];
+      }
+      return abbey;
+    } else {}
+
+  };
 
   passwordText.value = password;
+};
 
-}
-
-// Random Generator Function Choices -- Traversy Media on YouTube
-function randomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-function randomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-
-function randomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function randomSymbol() {
-  var symbols = "!@#$%^&*(){}[]=<>/,.";
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
+console.log(password);
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
+generateBtn.addEventListener("click", writePassword());
