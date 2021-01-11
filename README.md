@@ -12,11 +12,12 @@
 <h2>User Interface</h2>
 
 <h3>Question Prompts</h3>
-<p>When the 'Generate Password' button is clicked, the user is prompted with questions regarding the criteria for the random password they want. Options include: lower or upper case letters, numbers, symbols, and character length. The random password is then shown to the user.</p>
+<p>When the 'Generate Password' button is clicked, the user is prompted with questions regarding the criteria for their random password. Options include: lower or upper case letters, numbers, symbols, and character length. The random password is then shown to the user in the text box.</p>
 
 ![prompts](https://user-images.githubusercontent.com/72889560/104243035-97121580-5425-11eb-907d-d27a44fc5ab2.gif)
 
-<h3>Answer Validation</h3>
+<h3>Answer Validation:</h3>
+<br>
 <h4>No Options Chosen</h4>
 <p>If no password options are chosen, the user will be told to try again and choose at least one option.</p>
 
