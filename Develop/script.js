@@ -52,10 +52,10 @@ function writePassword() {
       }
       return generatedPassword;
     } 
-    else if (allowedOptions !== "" && passwordLength > 128 || passwordLength < 8) {
+    else if (allowedOptions !== "" && (passwordLength > 128 || passwordLength < 8)) {
       return "Please try again and choose a number between 8 and 128";
     }
-    else if (allowedOptions === "" && passwordLength > 128 || passwordLength < 8) {
+    else if (allowedOptions === "" && (passwordLength > 128 || passwordLength < 8)) {
       return "Please choose at least one password option and choose a number between 8 and 128";
     }
     else {
